@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/landingFragment">
+
+    <fragment
+        android:id="@+id/landingFragment"
+        android:name="com.syfuzzaman.test_project_gozayaan.ui.landing.LandingFragment"
+        android:label="fragment_landing"
+        tools:layout="@layout/fragment_landing">
+        <action
+            android:id="@+id/action_landingFragment_to_pageDetailsFragment"
+            app:destination="@id/pageDetailsFragment" />
+        <action
+            android:id="@+id/action_landingFragment_to_seeDetailsFragment"
+            app:destination="@id/seeDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pageDetailsFragment"
+        android:name="com.syfuzzaman.test_project_gozayaan.ui.page_details.PageDetailsFragment"
+        android:label="fragment_page_details"
+        tools:layout="@layout/fragment_page_details" />
+    <fragment
+        android:id="@+id/seeDetailsFragment"
+        android:name="com.syfuzzaman.test_project_gozayaan.ui.see_details.SeeDetailsFragment"
+        android:label="fragment_see_details"
+        tools:layout="@layout/fragment_see_details">
+        <action
+            android:id="@+id/action_seeDetailsFragment_to_pageDetailsFragment"
+            app:destination="@id/pageDetailsFragment" />
+    </fragment>
+</navigation>

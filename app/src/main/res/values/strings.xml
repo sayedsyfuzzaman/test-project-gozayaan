@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">test-project-gozayaan</string>
+    <string name="label_home">Home</string>
+    <string name="label_bookmark">Bookmark</string>
+    <string name="label_notification">Notification</string>
+    <string name="label_profile">Profile</string>
+    <string name="category_button">Category Button</string>
+    <string name="title_popular_categories">Popular Categories</string>
+    <string name="title_about_the_trip">About the trip</string>
+    <string name="label_tab_indicator">Tab Indicator</string>
+    <string name="label_book_now">Book Now</string>
+    <string name="label_per_day">/PER DAY</string>
+    <string name="label_see_all">See All</string>
+    <string name="title_recommended">Recommended</string>
+    <string name="label_back_button">Back Button</string>
+    <string name="label_category_icon">Category Icon</string>
+    <string name="label_search">Search</string>
+    <string name="label_search_icon">Search Icon</string>
+    <string name="ic_user_profile">User Profile</string>
 </resources>

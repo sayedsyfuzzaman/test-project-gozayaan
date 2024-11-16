@@ -35,6 +35,8 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.9.3"
 constraintlayout = "2.2.0"
+navigationFragmentKtx = "2.8.4"
+navigationUiKtx = "2.8.4"
 
 
 
@@ -50,6 +52,8 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
+androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
 
 # Jetpack
 lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle-version" }
@@ -76,7 +80,6 @@ coil-core = { group = "io.coil-kt", name = "coil", version.ref = "coil-version" 
 coil-gif = { group = "io.coil-kt", name = "coil-gif", version.ref = "coil-version" }
 coil-transformer = { group = "jp.wasabeef.transformers", name = "coil", version.ref = "coil-transformer-version" }
 coil-transformer-core = { group = "jp.wasabeef.transformers", name = "core", version.ref = "coil-transformer-version" }
-
 
 
 
