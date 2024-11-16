@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Primary and Secondary colors -->
+    <color name="primary">#2D303A</color>
+    <color name="primaryVariant">#1D2026</color>
+    <color name="onPrimary">#FFFFFF</color>
+
+    <!-- Background and Surface colors -->
+    <color name="background">#1D2026</color>
+    <color name="surface">#2D303A</color>
+    <color name="onSurface">#FFFFFF</color>
+
+    <!-- Text colors -->
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_white_90">#E6FFFFFF</color>
+    <color name="text_white_40">#66FFFFFF</color>
+    <color name="text_white_70">#B3FFFFFF</color>
+    <color name="text_white_20">#33FFFFFF</color>
+
+    <!-- Literals -->
+    <color name="literal_transparent">#00000000</color>
+    <color name="gradient_color_start">#F88264</color>
+    <color name="gradient_color_end">#FFE3C5</color>
+
 </resources>
