@@ -12,13 +12,19 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.syfuzzaman.test_project_gozayaan.R
 import com.syfuzzaman.test_project_gozayaan.data.api.HotelInfo
 import com.syfuzzaman.test_project_gozayaan.databinding.FragmentPageDetailsBinding
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
 
 class PageDetailsFragment : Fragment(){
+    private var slideJob: Job? = null
     private var _binding: FragmentPageDetailsBinding? = null
     private val binding get() = _binding
     private lateinit var mAdapter: DetailImageListAdapter
@@ -56,13 +62,28 @@ class PageDetailsFragment : Fragment(){
                 mAdapter.addAll(data.detailImages)
                 mAdapter.notifyDataSetChanged()
                 it.innerDetails.featuredViewpager.visibility = View.VISIBLE
-
+                startPageScroll()
                 it.innerDetails.propertyName.text = data.propertyName
                 it.innerDetails.tripRating.text = data.rating.toString()
                 it.innerDetails.location.text = data.location
                 it.innerDetails.description.text = data.description
 
-                it.price.text = data.currency + " " +data.fare
+                it.price.text = if (data.currency == "USD") "$" + data.fare else data.currency + " " +data.fare
+                it.fareUnit.text = " /${data.fareUnit}"
+            }
+        }
+    }
+
+    private fun startPageScroll() {
+        slideJob?.cancel()
+        slideJob = lifecycleScope.launch {
+            while (isActive) {
+                delay(4000)
+                if (isActive && mAdapter.itemCount > 0) {
+                    binding?.innerDetails?.featuredViewpager?.let {
+                        it.currentItem = (it.currentItem + 1) % mAdapter.itemCount
+                    }
+                }
             }
         }
     }
@@ -70,6 +91,8 @@ class PageDetailsFragment : Fragment(){
     override fun onDestroyView() {
         super.onDestroyView()
         requireActivity().handleSystemBarsVisibility(false)
+        slideJob?.cancel()
+        binding?.innerDetails?.featuredViewpager?.adapter = null
         _binding = null
     }
 

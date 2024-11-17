@@ -56,16 +56,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/pricePerDay"
+            app:layout_constraintEnd_toStartOf="@id/fareUnit"
             tools:text="$5,307" />
 
         <TextView
-            android:id="@+id/pricePerDay"
+            android:id="@+id/fareUnit"
             style="@style/PricePerDay"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
-            android:text="@string/label_per_day"
+            tools:text="@string/label_per_day"
             app:layout_constraintBottom_toBottomOf="@id/price"
             app:layout_constraintEnd_toStartOf="@id/Button01"
             app:layout_constraintStart_toEndOf="@id/price"
@@ -73,7 +73,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/Button01"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/bg_button_gradient"
@@ -84,7 +84,7 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/pricePerDay" />
+            app:layout_constraintStart_toEndOf="@+id/fareUnit" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
