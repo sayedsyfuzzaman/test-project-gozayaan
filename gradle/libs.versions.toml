@@ -20,6 +20,7 @@ hilt-android-version = "2.51.1"
 
 # Network
 okhttp-version = "4.12.0"
+okhttp-profiler-version = "1.1.1"
 retrofit-version = "2.11.0"
 
 # Image
@@ -74,6 +75,7 @@ retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.r
 retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit-version" }
 okhttp-logger = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp-version" }
 okhttp-dnshttp = { group = "com.squareup.okhttp3", name = "okhttp-dnsoverhttps", version.ref = "okhttp-version" }
+okhttp-profiler = { group = "io.nerdythings", name = "okhttp-profiler", version.ref = "okhttp-profiler-version" }
 
 # Image
 coil-core = { group = "io.coil-kt", name = "coil", version.ref = "coil-version" }
@@ -89,12 +91,13 @@ kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin-version"
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-version" }
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt-android-version" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin-version" }
 
 
 
 
 ###########################################################  BUNDLES  ##############################################################
 [bundles]
-retrofit = ["retrofit-core", "retrofit-gson", "okhttp-logger", "okhttp-dnshttp"]
+retrofit = ["retrofit-core", "retrofit-gson", "okhttp-logger", "okhttp-dnshttp", "okhttp-profiler"]
 coil = ["coil-core", "coil-gif", "coil-transformer", "coil-transformer-core"]
 
