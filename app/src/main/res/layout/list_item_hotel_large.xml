@@ -9,7 +9,7 @@
 
         <variable
             name="data"
-            type="com.syfuzzaman.test_project_gozayaan.ui.landing.home.sections.suggestions.TripInfo" />
+            type="com.syfuzzaman.test_project_gozayaan.data.api.HotelInfo" />
 
         <variable
             name="callback"
@@ -29,7 +29,8 @@
             android:layout_height="match_parent"
             android:background="@drawable/bg_item_category"
             android:scaleType="centerCrop"
-            android:src="@drawable/trip_image"
+            loadImageFromUrl="@{data.heroImage}"
+            android:src="@drawable/poster_placeholder"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +70,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="22dp"
-            android:text="@{data.name}"
+            android:text="@{data.propertyName}"
             app:layout_constraintBottom_toTopOf="@id/location"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

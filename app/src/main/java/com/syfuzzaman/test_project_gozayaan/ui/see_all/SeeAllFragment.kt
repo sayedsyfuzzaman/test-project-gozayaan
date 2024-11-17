@@ -1,46 +1,46 @@
-package com.syfuzzaman.test_project_gozayaan.ui.landing.home.sections.suggestions
+package com.syfuzzaman.test_project_gozayaan.ui.see_all
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.syfuzzaman.test_project_gozayaan.R
 import com.syfuzzaman.test_project_gozayaan.data.api.HotelInfo
 import com.syfuzzaman.test_project_gozayaan.data.model.Resource
+import com.syfuzzaman.test_project_gozayaan.databinding.FragmentSeeAllBinding
 import com.syfuzzaman.test_project_gozayaan.ui.utils.observe
-import com.syfuzzaman.test_project_gozayaan.databinding.FragmentSuggestionsBinding
 import com.syfuzzaman.test_project_gozayaan.ui.MainViewModel
 import com.syfuzzaman.test_project_gozayaan.ui.common.BaseListItemCallback
 import com.syfuzzaman.test_project_gozayaan.ui.utils.navigateTo
+import kotlin.getValue
 
-class SuggestionsFragment : Fragment(), BaseListItemCallback<HotelInfo> {
-    private var _binding: FragmentSuggestionsBinding? = null
+class SeeAllFragment : Fragment(), BaseListItemCallback<HotelInfo> {
+    private var _binding: FragmentSeeAllBinding? = null
     private val binding get() = _binding
-    private lateinit var mAdapter: HotelInfoListAdapter
+    private lateinit var mAdapter: HotelInfoListGridAdapter
     private val viewModel by activityViewModels<MainViewModel>()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentSuggestionsBinding.inflate(inflater, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        _binding = FragmentSeeAllBinding.inflate(inflater, container, false)
         return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mAdapter = HotelInfoListAdapter(this)
-        with(binding?.rvTrips) {
-            this?.adapter = mAdapter
+        binding?.topAppBar?.topbarTitle?.text = "Recommended"
+
+        binding?.topAppBar?.backButton?.setOnClickListener{
+            requireActivity().findNavController(R.id.mainHostFragmentContainer).popBackStack()
         }
 
-        binding?.seeAllButton?.setOnClickListener {
-            requireActivity().findNavController(R.id.mainHostFragmentContainer).navigateTo(R.id.action_landingFragment_to_seeDetailsFragment)
+        mAdapter = HotelInfoListGridAdapter(this)
+        with(binding?.rvTrips) {
+            this?.adapter = mAdapter
         }
 
         observeHotelList()
@@ -54,7 +54,7 @@ class SuggestionsFragment : Fragment(), BaseListItemCallback<HotelInfo> {
                     it.data?.let { data->
                         data[0].isBookmarked = true
                         mAdapter.removeAll()
-                        mAdapter.addAll(data.filter { it.isAvailable == true })
+                        mAdapter.addAll(data)
                         mAdapter.notifyDataSetChanged()
                     }
                 }
@@ -64,6 +64,7 @@ class SuggestionsFragment : Fragment(), BaseListItemCallback<HotelInfo> {
             }
         }
     }
+
     override fun onItemClicked(item: HotelInfo) {
         super.onItemClicked(item)
 

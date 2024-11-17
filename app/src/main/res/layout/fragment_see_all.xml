@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".ui.see_details.SeeDetailsFragment">
+    tools:context=".ui.see_all.SeeAllFragment">
 
     <include
         android:id="@+id/topAppBar"
@@ -34,5 +34,5 @@
         app:layout_constraintTop_toBottomOf="@id/topAppBar"
         app:reverseLayout="false"
         app:spanCount="2"
-        tools:listitem="@layout/list_grid_item_trip" />
+        tools:listitem="@layout/list_grid_item_hotel" />
 </androidx.constraintlayout.widget.ConstraintLayout>

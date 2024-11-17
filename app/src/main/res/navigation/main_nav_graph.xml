@@ -21,12 +21,18 @@
         android:id="@+id/pageDetailsFragment"
         android:name="com.syfuzzaman.test_project_gozayaan.ui.page_details.PageDetailsFragment"
         android:label="fragment_page_details"
-        tools:layout="@layout/fragment_page_details" />
+        tools:layout="@layout/fragment_page_details">
+
+        <argument
+            android:name="hotelInfo"
+            app:argType="com.syfuzzaman.test_project_gozayaan.data.api.HotelInfo" />
+
+    </fragment>
     <fragment
         android:id="@+id/seeDetailsFragment"
-        android:name="com.syfuzzaman.test_project_gozayaan.ui.see_details.SeeDetailsFragment"
+        android:name="com.syfuzzaman.test_project_gozayaan.ui.see_all.SeeAllFragment"
         android:label="fragment_see_details"
-        tools:layout="@layout/fragment_see_details">
+        tools:layout="@layout/fragment_see_all">
         <action
             android:id="@+id/action_seeDetailsFragment_to_pageDetailsFragment"
             app:destination="@id/pageDetailsFragment" />

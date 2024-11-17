@@ -5,7 +5,7 @@
     <data>
         <variable
             name="data"
-            type="com.syfuzzaman.test_project_gozayaan.ui.page_details.banner.DetailImage" />
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,7 +17,7 @@
             android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/trip_image"
+            loadImageFromUrl="@{data}"
             android:scaleType="centerCrop"
             android:background="@drawable/bg_item_category"
             app:layout_constraintStart_toStartOf="parent"

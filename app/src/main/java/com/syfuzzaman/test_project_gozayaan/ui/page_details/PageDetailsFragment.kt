@@ -13,12 +13,15 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.navigation.findNavController
+import com.google.android.material.tabs.TabLayoutMediator
 import com.syfuzzaman.test_project_gozayaan.R
+import com.syfuzzaman.test_project_gozayaan.data.api.HotelInfo
 import com.syfuzzaman.test_project_gozayaan.databinding.FragmentPageDetailsBinding
 
-class PageDetailsFragment : Fragment() {
+class PageDetailsFragment : Fragment(){
     private var _binding: FragmentPageDetailsBinding? = null
     private val binding get() = _binding
+    private lateinit var mAdapter: DetailImageListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +38,33 @@ class PageDetailsFragment : Fragment() {
         binding?.topAppBar?.backButton?.setOnClickListener{
             requireActivity().findNavController(R.id.mainHostFragmentContainer).popBackStack()
         }
+
+        val hotelInfo = arguments?.getParcelable<HotelInfo>("hotelInfo")
+
+        mAdapter = DetailImageListAdapter()
+
+        binding?.let {
+            it.innerDetails.featuredViewpager.adapter = mAdapter
+            TabLayoutMediator(
+                it.innerDetails.tabIndicator,
+                it.innerDetails.featuredViewpager,
+                true
+            ) { _, _ -> }.attach()
+
+            hotelInfo?.let { data ->
+                mAdapter.removeAll()
+                mAdapter.addAll(data.detailImages)
+                mAdapter.notifyDataSetChanged()
+                it.innerDetails.featuredViewpager.visibility = View.VISIBLE
+
+                it.innerDetails.propertyName.text = data.propertyName
+                it.innerDetails.tripRating.text = data.rating.toString()
+                it.innerDetails.location.text = data.location
+                it.innerDetails.description.text = data.description
+
+                it.price.text = data.currency + " " +data.fare
+            }
+        }
     }
 
     override fun onDestroyView() {
@@ -42,7 +72,6 @@ class PageDetailsFragment : Fragment() {
         requireActivity().handleSystemBarsVisibility(false)
         _binding = null
     }
-
 
     private fun Activity.handleSystemBarsVisibility(enable: Boolean) {
         if (enable) {
