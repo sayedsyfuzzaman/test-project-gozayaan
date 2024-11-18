@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.hilt.android)
 }
 
@@ -53,6 +54,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -71,6 +74,10 @@ dependencies {
     implementation(libs.bundles.retrofit)
     // Image
     implementation(libs.bundles.coil)
+    // Google Service
+    implementation(libs.google.location.service)
+    // Permission
+    implementation(libs.permissionx)
 }
 
 // Allow references to generated code

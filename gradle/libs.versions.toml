@@ -20,11 +20,15 @@ hilt-android-version = "2.51.1"
 
 # Network
 okhttp-version = "4.12.0"
+okhttp-profiler-version = "1.1.1"
 retrofit-version = "2.11.0"
 
 # Image
 coil-version = "2.6.0"
 coil-transformer-version = "1.0.5"
+
+# Google Service
+google-location-service-version = "21.0.1"
 
 agp = "8.7.1"
 coreKtx = "1.13.1"
@@ -35,7 +39,9 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.9.3"
 constraintlayout = "2.2.0"
-
+navigationFragmentKtx = "2.8.4"
+navigationUiKtx = "2.8.4"
+permissionx-version = "1.7.1"
 
 
 
@@ -50,6 +56,8 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
+androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
 
 # Jetpack
 lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle-version" }
@@ -70,6 +78,7 @@ retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.r
 retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit-version" }
 okhttp-logger = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp-version" }
 okhttp-dnshttp = { group = "com.squareup.okhttp3", name = "okhttp-dnsoverhttps", version.ref = "okhttp-version" }
+okhttp-profiler = { group = "io.nerdythings", name = "okhttp-profiler", version.ref = "okhttp-profiler-version" }
 
 # Image
 coil-core = { group = "io.coil-kt", name = "coil", version.ref = "coil-version" }
@@ -77,8 +86,11 @@ coil-gif = { group = "io.coil-kt", name = "coil-gif", version.ref = "coil-versio
 coil-transformer = { group = "jp.wasabeef.transformers", name = "coil", version.ref = "coil-transformer-version" }
 coil-transformer-core = { group = "jp.wasabeef.transformers", name = "core", version.ref = "coil-transformer-version" }
 
+# Google Services
+google-location-service = { group = "com.google.android.gms", name = "play-services-location", version.ref = "google-location-service-version" }
 
-
+# Permissions
+permissionx = {group = "com.guolindev.permissionx", name = "permissionx", version.ref = "permissionx-version"}
 
 ###########################################################  PLUGINS  ##############################################################
 [plugins]
@@ -86,12 +98,13 @@ kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin-version"
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-version" }
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt-android-version" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin-version" }
 
 
 
 
 ###########################################################  BUNDLES  ##############################################################
 [bundles]
-retrofit = ["retrofit-core", "retrofit-gson", "okhttp-logger", "okhttp-dnshttp"]
+retrofit = ["retrofit-core", "retrofit-gson", "okhttp-logger", "okhttp-dnshttp", "okhttp-profiler"]
 coil = ["coil-core", "coil-gif", "coil-transformer", "coil-transformer-core"]
 

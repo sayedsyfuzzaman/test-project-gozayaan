@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.landing.home.sections.suggestions.SuggestionsFragment">
+
+    <TextView
+        android:id="@+id/categoriesTitle"
+        style="@style/MyTextAppearance.Title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="@string/title_recommended"
+        app:layout_constraintBottom_toTopOf="@id/rvTrips"
+        app:layout_constraintEnd_toStartOf="@id/seeAllButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <com.syfuzzaman.test_project_gozayaan.ui.utils.GradientTextView
+        android:id="@+id/seeAllButton"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:text="@string/label_see_all"
+        app:layout_constraintBottom_toBottomOf="@id/categoriesTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/categoriesTitle"
+        app:layout_constraintTop_toTopOf="@id/categoriesTitle" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTrips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:paddingStart="30dp"
+        android:paddingEnd="14dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/categoriesTitle"
+        app:reverseLayout="false"
+        tools:itemCount="6"
+        tools:listitem="@layout/list_item_hotel_large" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
