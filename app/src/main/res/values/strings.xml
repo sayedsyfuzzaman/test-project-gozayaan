@@ -17,4 +17,6 @@
     <string name="label_search">Search</string>
     <string name="label_search_icon">Search Icon</string>
     <string name="ic_user_profile">User Profile</string>
+    <string name="clear_search_text">Clear search text</string>
+    <string name="search_results_label">Search Results</string>
 </resources>
