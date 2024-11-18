@@ -4,15 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.permissionx.guolindev.PermissionX
 import com.syfuzzaman.test_project_gozayaan.databinding.FragmentLandingBinding
 import com.syfuzzaman.test_project_gozayaan.ui.utils.LocationHelper
+import com.syfuzzaman.test_project_gozayaan.R
+import com.syfuzzaman.test_project_gozayaan.ui.MainViewModel
+import com.syfuzzaman.test_project_gozayaan.ui.utils.navigatePopUpTo
 
 class LandingFragment : Fragment() {
     private var _binding: FragmentLandingBinding? = null
     private val binding get() = _binding
     private lateinit var locationHelper: LocationHelper
+    private val viewModel by activityViewModels<MainViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +33,8 @@ class LandingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupBottomNavigationView()
+
         locationHelper = LocationHelper(requireContext())
         locationHelper.initializeLocationManager()
         checkAndFetchLocation()
@@ -34,6 +44,34 @@ class LandingFragment : Fragment() {
         }
     }
 
+    private fun setupBottomNavigationView() {
+        val navHostFragment = childFragmentManager.findFragmentById(R.id.hostFragmentContainer) as NavHostFragment
+        binding?.bottomNavigationView?.apply {
+            setupWithNavController(navHostFragment.navController)
+            setOnItemSelectedListener{ menuItem->
+                when (menuItem.itemId) {
+                    R.id.homeFragment -> {
+                        navHostFragment.navController.navigatePopUpTo(R.id.homeFragment)
+                        viewModel.clearSearchItems()
+                        true
+                    }
+                    R.id.bookmarkFragment -> {
+                        Toast.makeText(requireContext(), "Action Required", Toast.LENGTH_SHORT).show()
+                        false
+                    }
+                    R.id.notificationFragment -> {
+                        Toast.makeText(requireContext(), "Action Required", Toast.LENGTH_SHORT).show()
+                        false
+                    }
+                    R.id.profileFragment -> {
+                        Toast.makeText(requireContext(), "Action Required", Toast.LENGTH_SHORT).show()
+                        false
+                    }
+                    else -> false
+                }
+            }
+        }
+    }
     private fun checkAndFetchLocation() {
         if (locationHelper.isLocationPermissionGranted()) {
             fetchLocation()
