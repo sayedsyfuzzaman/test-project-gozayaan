@@ -74,6 +74,10 @@ dependencies {
     implementation(libs.bundles.retrofit)
     // Image
     implementation(libs.bundles.coil)
+    // Google Service
+    implementation(libs.google.location.service)
+    // Permission
+    implementation(libs.permissionx)
 }
 
 // Allow references to generated code

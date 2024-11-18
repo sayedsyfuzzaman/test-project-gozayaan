@@ -27,6 +27,9 @@ retrofit-version = "2.11.0"
 coil-version = "2.6.0"
 coil-transformer-version = "1.0.5"
 
+# Google Service
+google-location-service-version = "21.0.1"
+
 agp = "8.7.1"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -38,7 +41,7 @@ activity = "1.9.3"
 constraintlayout = "2.2.0"
 navigationFragmentKtx = "2.8.4"
 navigationUiKtx = "2.8.4"
-
+permissionx-version = "1.7.1"
 
 
 
@@ -83,7 +86,11 @@ coil-gif = { group = "io.coil-kt", name = "coil-gif", version.ref = "coil-versio
 coil-transformer = { group = "jp.wasabeef.transformers", name = "coil", version.ref = "coil-transformer-version" }
 coil-transformer-core = { group = "jp.wasabeef.transformers", name = "core", version.ref = "coil-transformer-version" }
 
+# Google Services
+google-location-service = { group = "com.google.android.gms", name = "play-services-location", version.ref = "google-location-service-version" }
 
+# Permissions
+permissionx = {group = "com.guolindev.permissionx", name = "permissionx", version.ref = "permissionx-version"}
 
 ###########################################################  PLUGINS  ##############################################################
 [plugins]

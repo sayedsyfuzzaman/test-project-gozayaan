@@ -21,6 +21,30 @@
             android:layout_marginHorizontal="30dp"
             android:layout_marginTop="20dp" />
 
+        <TextView
+            android:id="@+id/searchResultTitle"
+            style="@style/MyTextAppearance.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/search_results_label"
+            android:visibility="gone"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSearchResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="22dp"
+            android:paddingBottom="16dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:reverseLayout="false"
+            app:spanCount="2"
+            tools:listitem="@layout/list_grid_item_hotel"
+            android:visibility="gone"/>
+
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/categoriesFragment"
             android:name="com.syfuzzaman.test_project_gozayaan.ui.landing.home.sections.category.CategoriesFragment"
