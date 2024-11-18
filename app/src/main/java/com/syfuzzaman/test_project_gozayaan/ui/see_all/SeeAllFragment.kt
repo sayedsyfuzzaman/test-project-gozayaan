@@ -42,29 +42,14 @@ class SeeAllFragment : Fragment(), BaseListItemCallback<HotelInfo> {
         with(binding?.rvTrips) {
             this?.adapter = mAdapter
         }
-
-        observeHotelList()
-        viewModel.callHotelListApi()
-    }
-
-    fun observeHotelList(){
-        observe(viewModel.hotelList) {
-            when(it){
-                is Resource.Success ->{
-                    it.data?.let { data->
-                        data[0].isBookmarked = true
-                        mAdapter.removeAll()
-                        mAdapter.addAll(data)
-                        mAdapter.notifyDataSetChanged()
-                    }
-                }
-                is Resource.Failure ->{
-                    Toast.makeText(requireContext(), it.error.msg, Toast.LENGTH_SHORT).show()
-                }
-            }
+        val data = viewModel.getHotelList()
+        if (!data.isNullOrEmpty()){
+            data[0].isBookmarked = true
+            mAdapter.removeAll()
+            mAdapter.addAll(data)
+            mAdapter.notifyDataSetChanged()
         }
     }
-
     override fun onItemClicked(item: HotelInfo) {
         super.onItemClicked(item)
 
